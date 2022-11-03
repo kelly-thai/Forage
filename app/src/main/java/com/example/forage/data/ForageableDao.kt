@@ -16,6 +16,7 @@
 package com.example.forage.data
 
 import androidx.room.*
+import androidx.room.Dao
 import com.example.forage.model.Forageable
 import kotlinx.coroutines.flow.Flow
 
@@ -26,11 +27,11 @@ import kotlinx.coroutines.flow.Flow
 interface ForageableDao {
 
     // implement a method to retrieve all Forageables from the database
-    @Query("SELECT * from item ORDER BY name ASC")
+    @Query("SELECT * from forageable ORDER BY name ASC")
     fun getForageables(): Flow<List<Forageable>>
 
     // implement a method to retrieve a Forageable from the database by id
-    @Query("SELECT * from item WHERE id = :id")
+    @Query("SELECT * from forageable WHERE id = :id")
     fun getForageable(id: Long): Flow<Forageable>
 
     // implement a method to insert a Forageable into the database
