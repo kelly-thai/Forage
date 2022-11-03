@@ -48,10 +48,9 @@ class AddForageableFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    // TODO: Refactor the creation of the view model to take an instance of
+    // Refactor the creation of the view model to take an instance of
     //  ForageableViewModelFactory. The factory should take an instance of the Database retrieved
     //  from BaseApplication
-    // private val viewModel: ForageableViewModel by activityViewModels()
     private val viewModel: ForageableViewModel by activityViewModels {
         ForageableViewModelFactory(
             (activity?.application as BaseApplication).database.forageableDao()
@@ -73,7 +72,7 @@ class AddForageableFragment : Fragment() {
         val id = navigationArgs.id
         if (id > 0) {
 
-            // TODO: Observe a Forageable that is retrieved by id, set the forageable variable,
+            // Observe a Forageable that is retrieved by id, set the forageable variable,
             //  and call the bindForageable method
             viewModel.getForageable(id).observe(viewLifecycleOwner) {
                 forageable = it
